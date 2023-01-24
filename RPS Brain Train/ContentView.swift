@@ -19,12 +19,44 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("RBS Brain Train")//Title
+            
+            /*
+             Will tell the user what their chosen
+             item must do against the randomised option
+             - this will also be random
+             */
+            Text("Draw/Win/Lose against")
+            
+            //This will be the randomised optio
+            VStack {
+                Text("Symbol 0")//images
+                Text("Rock/paper/scissors")//label
+            }
+            
+            
+            //This will be the options of choices that the user has
+            HStack {
+                //Each element here will be a button
+                VStack {
+                    Text("Symbol 1")//images
+                    Text("Rock")//label
+                }
+                VStack {
+                    Text("Symbol 2")//image
+                    Text("Paper")//label
+                }
+                VStack {
+                    Text("Symbol 3")//image
+                    Text("Scicssors")//label
+                }
+                
+                
+                
+            }
         }
-        .padding()
+        
+        
     }
 }
 
