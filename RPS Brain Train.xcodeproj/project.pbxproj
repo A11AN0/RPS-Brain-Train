@@ -11,6 +11,8 @@
 		9D5A7CD8297EDDDF00B596ED /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D5A7CD7297EDDDF00B596ED /* ContentView.swift */; };
 		9D5A7CDA297EDDE100B596ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A7CD9297EDDE100B596ED /* Assets.xcassets */; };
 		9D5A7CDD297EDDE100B596ED /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D5A7CDC297EDDE100B596ED /* Preview Assets.xcassets */; };
+		9DF2196629816D5F007272A9 /* Title.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF2196529816D5F007272A9 /* Title.swift */; };
+		9DF2196A2981945F007272A9 /* SquareTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF219692981945F007272A9 /* SquareTile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		9D5A7CD7297EDDDF00B596ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9D5A7CD9297EDDE100B596ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D5A7CDC297EDDE100B596ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9DF2196529816D5F007272A9 /* Title.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Title.swift; sourceTree = "<group>"; };
+		9DF219692981945F007272A9 /* SquareTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +57,8 @@
 			children = (
 				9D5A7CD5297EDDDF00B596ED /* RPS_Brain_TrainApp.swift */,
 				9D5A7CD7297EDDDF00B596ED /* ContentView.swift */,
+				9DF2196529816D5F007272A9 /* Title.swift */,
+				9DF219692981945F007272A9 /* SquareTile.swift */,
 				9D5A7CD9297EDDE100B596ED /* Assets.xcassets */,
 				9D5A7CDB297EDDE100B596ED /* Preview Content */,
 			);
@@ -139,6 +145,8 @@
 			files = (
 				9D5A7CD8297EDDDF00B596ED /* ContentView.swift in Sources */,
 				9D5A7CD6297EDDDF00B596ED /* RPS_Brain_TrainApp.swift in Sources */,
+				9DF2196A2981945F007272A9 /* SquareTile.swift in Sources */,
+				9DF2196629816D5F007272A9 /* Title.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
