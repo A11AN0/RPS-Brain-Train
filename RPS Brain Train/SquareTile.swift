@@ -16,7 +16,7 @@ struct SquareTile: View {
             .font(.system(size: 40))
             .padding(.trailing)
             .frame(width: CGFloat(size), height: CGFloat(size))
-            .background(Color(.lightGray))
+            .background(Color(.systemGray5))
             .cornerRadius(10)
     }
     
