@@ -2,7 +2,7 @@
 //  SquareTile.swift
 //  RPS Brain Train
 //
-//  Created by Allan Odunga on 26/1/2023.
+//  Created by A11AN0.
 //
 
 import SwiftUI

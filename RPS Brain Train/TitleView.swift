@@ -7,14 +7,17 @@
 
 import SwiftUI
 
-struct Title: View {
+struct TitleView: View {
     var body: some View {
-        SquareTile(text: "RPS\nBRAIN\nTRAIN")
+        NavigationLink(destination: MainGameView()) {
+            SquareTile(text: "RPS\nBRAIN\nTRAIN")
+        }
+        .buttonStyle(PlainButtonStyle())
     }  
 }
 
 struct TitleView_Previews: PreviewProvider {
     static var previews: some View {
-        Title()
+        TitleView()
     }
 }
