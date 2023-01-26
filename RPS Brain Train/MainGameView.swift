@@ -10,9 +10,24 @@ import SwiftUI
 struct MainGameView: View {
     var body: some View {
         VStack {
+            Spacer()
             Text("0:30")
+                .font(.largeTitle)
+                .fontWeight(.light)
+            
             Text("DRAW AGAINST")
-            SquareTile(size: 180)
+                .font(.largeTitle)
+                .fontWeight(.medium)
+                .frame(maxWidth: .infinity)
+                .padding(5)
+                .background(Color(.systemGray5))
+            Spacer()
+            VStack {
+                SquareTile(size: 180)
+                Text("RANDOM")
+                    .font(.title)
+            }
+            Spacer()
             HStack {
                 ForEach(0..<3){number in
                     Button {
@@ -20,16 +35,23 @@ struct MainGameView: View {
                     } label: {
                         VStack {
                             SquareTile(size: 110)
-                            Text("random")
+                            Text("RANDOM")
+                                .font(.title3)
                         }
                     }
+                    .buttonStyle(PlainButtonStyle())
                 }
             }
+            Spacer()
             Text("3/10")
+                .font(.largeTitle)
+                .fontWeight(.light)
+            Spacer()
         }
           .navigationBarBackButtonHidden(true)
-          .background(Color(.cyan))
+//          .background(Color(.cyan))
     }
+    
     
 }
 
