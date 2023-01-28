@@ -18,6 +18,23 @@ struct TitleView: View {
 //                    tap.toggle()
 //                }
 //            }
+/*
+ might be cool for background to turn green on tap before going to next view,
+ will give it a try and see what happens XD - investigate possible methods for
+ cirvumventing the NavigationLink thingie :)
+ 
+ VStack {
+     SquareTile(text: "RPS\nBRAIN\nTRAIN")
+ }
+ .background(Color(tap ? .systemGreen : .clear))
+     .scaleEffect(tap ? 0.9 : 1)
+     .onTapGesture {
+         withAnimation() {
+             tap.toggle()
+         }
+     }
+ 
+ */
     }  
 }
 
