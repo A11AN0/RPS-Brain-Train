@@ -12,15 +12,31 @@ import SwiftUI
 struct MainGameView: View {
     static let itemChoice = ["rock", "paper", "scissors"]
     static let randomResult = ["win against", "draw with", "lose to"]
-    @State private var shuffledItems = itemChoice.shuffled()
-    @State private var shuffledResult = randomResult.shuffled()
+    private let maxRounds = 15;
+    @State private var shuffledItemsArr = itemChoice.shuffled()
+    @State private var shuffledResultsArr = randomResult.shuffled()
+    @State private var shuffledSingleItem = itemChoice.shuffled()[0]
     @State private var numberOfRounds = 1;
+    @State private var timeRemaining = 30;
+    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+
+    func resetRound() {
+        numberOfRounds += 1
+        shuffledItemsArr = MainGameView.itemChoice.shuffled()
+        shuffledResultsArr = MainGameView.randomResult.shuffled()
+        shuffledSingleItem = MainGameView.itemChoice.shuffled()[0]
+    }
 
     var body: some View {
         VStack {
             Spacer()
-            GameTimer(currentRound: numberOfRounds)
-            Text("\(shuffledResult[Int.random(in: 0...2)].uppercased())")
+            GameTimer(timeRemainder: timeRemaining)
+                .onReceive(timer){ _ in
+                    if timeRemaining > 0 {
+                        timeRemaining -= 1
+                    }
+                }
+            Text("\(shuffledResultsArr[0].uppercased())")
                 .font(.largeTitle)
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity)
@@ -29,20 +45,18 @@ struct MainGameView: View {
             Spacer()
             VStack {
                 SquareTile(size: 180)
-                Text(shuffledItems[Int.random(in: 0...2)].uppercased())
+                Text(shuffledSingleItem.uppercased())
                     .font(.title)
             }
             Spacer()
             HStack {
                 ForEach(0..<3){number in
                     Button {
-                        numberOfRounds += 1
-                        shuffledItems.shuffle()
-                        shuffledResult.shuffle()
+                        resetRound()
                     } label: {
                         VStack {
                             SquareTile(size: 110)
-                            Text(shuffledItems[number].uppercased())
+                            Text(shuffledItemsArr[number].uppercased())
                                 .font(.title3)
                             
                         }
@@ -51,16 +65,13 @@ struct MainGameView: View {
                 }
             }
             Spacer()
-            Text("\(numberOfRounds)/10")
+            Text("\(numberOfRounds)/\(maxRounds)")
                 .font(.largeTitle)
                 .fontWeight(.light)
             Spacer()
         }
           .navigationBarBackButtonHidden(true)
-//          .background(Color(.cyan))
     }
-    
-    
 }
 
 
