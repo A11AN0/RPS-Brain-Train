@@ -8,25 +8,24 @@
 import SwiftUI
 
 struct GameTimer: View {
-    var currentRound: Int
-    @State private var timeRemaining = 30;
-    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    
+    var timeRemainder:Int
+//    private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    /*
+     timer now in parent view - necessary to avoid pausing countdown at
+     each external state change :|
+     */
     
     var body: some View {
-        Text("0:\(String(format: "%02d", timeRemaining))")
+        Text("0:\(String(format: "%02d", timeRemainder))")
             .font(.largeTitle)
             .fontWeight(.light)
-            .onReceive(timer){ time in
-                if timeRemaining > 0 {
-                    timeRemaining -= 1
-                }
-            }
-            .foregroundColor(timeRemaining <= 10 ? .red : .primary)
+            .foregroundColor(timeRemainder <= 10 ? .red : .primary)
     }
 }
 
 struct GameTimer_Previews: PreviewProvider {
     static var previews: some View {
-        GameTimer(currentRound: 1)
+        GameTimer(timeRemainder: 15)
     }
 }
