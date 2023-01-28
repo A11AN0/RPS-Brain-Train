@@ -7,12 +7,17 @@
 
 import SwiftUI
 
+
 struct TitleView: View {
+//    @State private var tap = false;
     var body: some View {
-        NavigationLink(destination: MainGameView()) {
-            SquareTile(text: "RPS\nBRAIN\nTRAIN")
-        }
-        .buttonStyle(PlainButtonStyle())
+         SquareTile(text: "RPS\nBRAIN\nTRAIN")
+//            .scaleEffect(tap ? 0.9 : 1)
+//            .onTapGesture {
+//                withAnimation() {
+//                    tap.toggle()
+//                }
+//            }
     }  
 }
 

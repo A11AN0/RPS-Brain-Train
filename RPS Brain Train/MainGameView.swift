@@ -7,15 +7,20 @@
 
 import SwiftUI
 
+
+
 struct MainGameView: View {
+    static let itemChoice = ["rock", "paper", "scissors"]
+    static let randomResult = ["win against", "draw with", "lose to"]
+    @State private var shuffledItems = itemChoice.shuffled()
+    @State private var shuffledResult = randomResult.shuffled()
+    @State private var numberOfRounds = 1;
+
     var body: some View {
         VStack {
             Spacer()
-            Text("0:30")
-                .font(.largeTitle)
-                .fontWeight(.light)
-            
-            Text("DRAW AGAINST")
+            GameTimer(currentRound: numberOfRounds)
+            Text("\(shuffledResult[Int.random(in: 0...2)].uppercased())")
                 .font(.largeTitle)
                 .fontWeight(.medium)
                 .frame(maxWidth: .infinity)
@@ -24,26 +29,29 @@ struct MainGameView: View {
             Spacer()
             VStack {
                 SquareTile(size: 180)
-                Text("RANDOM")
+                Text(shuffledItems[Int.random(in: 0...2)].uppercased())
                     .font(.title)
             }
             Spacer()
             HStack {
                 ForEach(0..<3){number in
                     Button {
-                        print("hi")
+                        numberOfRounds += 1
+                        shuffledItems.shuffle()
+                        shuffledResult.shuffle()
                     } label: {
                         VStack {
                             SquareTile(size: 110)
-                            Text("RANDOM")
+                            Text(shuffledItems[number].uppercased())
                                 .font(.title3)
+                            
                         }
                     }
                     .buttonStyle(PlainButtonStyle())
                 }
             }
             Spacer()
-            Text("3/10")
+            Text("\(numberOfRounds)/10")
                 .font(.largeTitle)
                 .fontWeight(.light)
             Spacer()

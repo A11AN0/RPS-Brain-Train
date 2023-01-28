@@ -16,16 +16,20 @@
 
 import SwiftUI
 
+
+
 struct ContentView: View {
+    let title = TitleView()
+    let mainGame = MainGameView()
     var body: some View {
             NavigationView {
-                TitleView()
-            }
-        
-        
-            
-        
-        
+                NavigationLink(destination: mainGame) {
+                    title
+                }
+                .buttonStyle(PlainButtonStyle())
+                
+
+            }   
     }
 }
 
