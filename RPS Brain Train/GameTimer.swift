@@ -41,6 +41,7 @@ struct GameTimer: View {
             }
                   
         }
+        .contentShape(Rectangle()) // to increase tappable area
         .onTapGesture {
             withAnimation {
                 if isReady == false {
