@@ -19,12 +19,22 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State private var gameIsOver = false; //will probably be a binding too lol
+    @State private var gameScore = 0; // will be a binding
+    
+    
     let title = TitleView()
     let mainGame = MainGameView()
+    let end = ScoreView()
+    
     var body: some View {
             NavigationView {
                 NavigationLink(destination: mainGame) {
-                    title
+                    if gameIsOver {
+                        end
+                    } else {
+                        title
+                    }
                 }
                 .buttonStyle(PlainButtonStyle())
                 
