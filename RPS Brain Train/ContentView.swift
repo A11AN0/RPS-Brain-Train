@@ -19,7 +19,7 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State private var gameIsOver = false; //will probably be a binding too lol
+    @State private var firstGameOver = false; //will be changed when the first game is lost, and stay that way, so cannot return to title screen
     @State private var gameScore = 0; // will be a binding
     
     
@@ -30,11 +30,16 @@ struct ContentView: View {
     var body: some View {
             NavigationView {
                 NavigationLink(destination: mainGame) {
-                    if gameIsOver {
+                    
+                    if firstGameOver {
                         end
-                    } else {
+                    }
+                    else
+                    {
                         title
                     }
+                        
+                    
                 }
                 .buttonStyle(PlainButtonStyle())
                 
