@@ -36,6 +36,10 @@ struct MainGameView: View {
     @State private var signalColor = Color.clear
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
+    //will use when game ends
+    func endGame() {
+        
+    }
     
     func resetRound() {
         numberOfRounds += 1
