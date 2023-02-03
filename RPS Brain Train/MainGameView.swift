@@ -34,11 +34,13 @@ struct MainGameView: View {
     @State private var chosenItem = "" // will be set each time the user chooses
     @State private var desiredResult = randomResult.shuffled()[0] // will be set each time the user chooses
     @State private var signalColor = Color.clear
+    @State private var gameTexIstHidden = false;
     private let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
 
     //will use when game ends
     func endGame() {
-        
+        gameTexIstHidden = true
+        // will need to think about what tot do with the desired result title
     }
     
     func resetRound() {
@@ -86,6 +88,10 @@ struct MainGameView: View {
     
 
     var body: some View {
+        
+        let desiredResultTitle = desiredResult.uppercased()
+        
+        
         VStack {
             VStack(spacing: 0) {
                 /*
@@ -106,12 +112,13 @@ struct MainGameView: View {
                     }
                 
                 if readyToPlay {
-                    Text("\(desiredResult.uppercased())")
+                    Text(desiredResultTitle)
                         .font(.largeTitle)
                         .fontWeight(.medium)
                         .frame(maxWidth: .infinity)
                         .padding(5)
                         .background(.thinMaterial)
+                        
                 }
                 
             }
@@ -122,6 +129,7 @@ struct MainGameView: View {
                     SquareTile(size: 180)
                     Text(shuffledSingleItem.uppercased())
                         .font(.title)
+                        .opacity(gameTexIstHidden ? 0 : 1)
                 }
                 Spacer()
                 HStack {
@@ -136,6 +144,7 @@ struct MainGameView: View {
                                 SquareTile(size: 110)
                                 Text(shuffledItemsArr[number].uppercased())
                                     .font(.title3)
+                                    .opacity(gameTexIstHidden ? 0 : 1)
                                 
                             }
                         }

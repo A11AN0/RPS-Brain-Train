@@ -10,6 +10,7 @@ import SwiftUI
 
 struct GameTimer: View {
     @Binding var isReady: Bool
+    @State private var gameIsOver = true
     /*had to make this a binding because, when toggled - this needs to affect the state of it's parent MainGameView :)*/
     var timeRemainder:Int
 
@@ -21,36 +22,59 @@ struct GameTimer: View {
             - the animation is also pretty cool lol
          
          */
-        
-        VStack {
-            if isReady {
-                Text("0:\(String(format: "%02d", timeRemainder))")
+        if gameIsOver {
+            VStack {
+                Spacer()
+                Text("YOUR SCORE")
                     .font(.largeTitle)
                     .fontWeight(.light)
-                    .foregroundColor(timeRemainder <= 10 ? .red : .primary)
                     .frame(maxWidth: .infinity, maxHeight: 120)
-            } else {
-                VStack {
-                    Spacer()
-                    Text("ARE YOU READY?")
-                        .font(.largeTitle)
-                        .fontWeight(.light)
-                        .frame(maxWidth: .infinity, maxHeight: 120)
-                    Spacer()
-                }
-            }
-                  
-        }
-        .contentShape(Rectangle()) // to increase tappable area
-        .onTapGesture {
-            withAnimation {
-                if isReady == false {
-                    isReady.toggle()
-                }
+                    .underline()
+                Text("350")
+                    .font(.largeTitle)
+                    .fontWeight(.light)
+                    .frame(maxWidth: .infinity, maxHeight: 120)
+                    .scaleEffect(1.5)
+                //will need to put restart image here
+                
+                Spacer()
             }
             
+        } else {
+           
+            VStack {
+                if isReady {
+                    Text("0:\(String(format: "%02d", timeRemainder))")
+                        .font(.largeTitle)
+                        .fontWeight(.light)
+                        .foregroundColor(timeRemainder <= 10 ? .red : .primary)
+                        .frame(maxWidth: .infinity, maxHeight: 120)
+                } else {
+                    VStack {
+                        Spacer()
+                        Text("ARE YOU READY?")
+                            .font(.largeTitle)
+                            .fontWeight(.light)
+                            .frame(maxWidth: .infinity, maxHeight: 120)
+                        Spacer()
+                    }
+                }
+                      
+            }
+            .contentShape(Rectangle()) // to increase tappable area
+            .onTapGesture {
+                withAnimation {
+                    if isReady == false {
+                        isReady.toggle()
+                    }
+                }
+                
+            }
+            .background(Color( isReady ? .clear :  .systemGreen))
+
         }
-        .background(Color( isReady ? .clear :  .systemGreen))
+        
+        
         
             
 
