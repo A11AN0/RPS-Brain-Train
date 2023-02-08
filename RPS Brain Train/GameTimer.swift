@@ -10,7 +10,7 @@ import SwiftUI
 
 struct GameTimer: View {
     @Binding var isReady: Bool
-    @State private var gameIsOver = true
+    @State private var gameIsOver = false
     /*had to make this a binding because, when toggled - this needs to affect the state of it's parent MainGameView :)*/
     var timeRemainder:Int
 

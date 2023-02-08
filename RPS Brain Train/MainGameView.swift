@@ -30,6 +30,7 @@ struct MainGameView: View {
     @State private var numberOfRounds = 1;
     @State private var timeRemaining = 30;
     @State private var readyToPlay = false; /*moved to parent so timer will start only when GameTimer button is clicked */
+    @State private var gameHasEnded = false;
     @State private var score = 0; //will be set by recordChoice() each time the user makes a choice
     @State private var chosenItem = "" // will be set each time the user chooses
     @State private var desiredResult = randomResult.shuffled()[0] // will be set each time the user chooses
@@ -40,7 +41,25 @@ struct MainGameView: View {
     //will use when game ends
     func endGame() {
         gameTexIstHidden = true
+        readyToPlay = false
+        gameHasEnded = true
+        
         // will need to think about what tot do with the desired result title
+    }
+    
+    func evaluateEndGame() {
+        //this will be put into the onReceive, !gameHasEnded will make sure that this only runs once
+        if !gameHasEnded {
+            if timeRemaining == 0 {
+                endGame()
+            }
+            
+            //I will need to put something for when the buttons are pressed
+            if numberOfRounds == maxRounds {
+                endGame()
+            }
+        }
+        
     }
     
     func resetRound() {
@@ -49,6 +68,14 @@ struct MainGameView: View {
         shuffledResultsArr = MainGameView.randomResult.shuffled()
         shuffledSingleItem = MainGameView.itemChoice.shuffled()[0]
         desiredResult = MainGameView.randomResult.shuffled()[0]
+    }
+    
+    //to reset entire game
+    func restartGame() {
+        gameTexIstHidden = false
+        timeRemaining = 30
+        score = 0
+        numberOfRounds = 1
     }
     
     func recordChoice() {
@@ -105,10 +132,7 @@ struct MainGameView: View {
                         if timeRemaining > 0 && readyToPlay {
                             timeRemaining -= 1
                         }
-                        
-                        if timeRemaining == 0 {
-                            //redirect to score page
-                        }
+                        evaluateEndGame()
                     }
                 
                 if readyToPlay {
@@ -138,6 +162,7 @@ struct MainGameView: View {
                             chosenItem = shuffledItemsArr[number]
                             recordChoice()
                             resetRound()
+                            evaluateEndGame()
                             
                         } label: {
                             VStack {
