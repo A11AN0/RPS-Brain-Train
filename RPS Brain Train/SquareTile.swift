@@ -10,14 +10,44 @@ import SwiftUI
 struct SquareTile: View {
     var text = ""
     var size = 150
+    var image = ""
+    var scaleSize = 5
+    var isclear = false
+    
     
     var body: some View {
-        Text(text)
-            .font(.system(size: 40))
-            .padding(.trailing)
-            .frame(width: CGFloat(size), height: CGFloat(size))
-            .background(.thinMaterial)
-            .cornerRadius(10)
+        if image.count > 0 {
+            if isclear {
+                HStack {
+                    Image(systemName: image)
+                        .scaleEffect(CGFloat(scaleSize))
+                }
+                .frame(width: CGFloat(size), height: CGFloat(size))
+                .cornerRadius(10)
+            }
+            else {
+                HStack {
+                    Image(systemName: image)
+                        .scaleEffect(CGFloat(scaleSize))
+                }
+                .frame(width: CGFloat(size), height: CGFloat(size))
+                .background(.thinMaterial)
+                .cornerRadius(10)
+            }
+            
+            
+            
+        }
+        else
+        {
+            Text(text)
+                .font(.system(size: 40))
+                .padding(.trailing)
+                .frame(width: CGFloat(size), height: CGFloat(size))
+                .background(.thinMaterial)
+                .cornerRadius(10)
+        }
+        
             
         
             

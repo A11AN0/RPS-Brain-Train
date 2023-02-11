@@ -61,9 +61,7 @@ struct GameTimer: View {
                             .frame(maxWidth: .infinity, maxHeight: 120)
                         
                         VStack {
-                            SquareTile()
-                            Text("YES")
-                                .font(.title)
+                            SquareTile(image: "checkmark", isclear: true)
                                 
                         }
                         .onTapGesture {

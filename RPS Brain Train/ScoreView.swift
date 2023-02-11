@@ -36,10 +36,8 @@ struct ScoreView: View {
             HStack {
                 Spacer()
                 VStack {
-                    SquareTile()
-                    Text("YES")
-                        .font(.title)
-                        .fontWeight(.light)
+                    SquareTile(image: "checkmark", isclear: true)
+                    
                     
                         
                 }
@@ -49,10 +47,8 @@ struct ScoreView: View {
                 }
                 Spacer()
                 VStack {
-                    SquareTile()
-                    Text("NO")
-                        .font(.title)
-                        .fontWeight(.light)
+                    SquareTile(image: "xmark", isclear: true)
+                    
                 }
                 .scaleEffect(0.8)
                 Spacer()

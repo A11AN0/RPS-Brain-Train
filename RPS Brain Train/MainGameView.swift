@@ -16,9 +16,9 @@ struct MainGameView: View {
     
     //DICTIONARIES, below is type annotation example for this set
     static let matchPairs = [
-        "rock": ["win against": "paper", "draw with": "rock", "lose to":"scissors"],
-        "paper": ["win against": "scissors", "draw with": "paper", "lose to":"rock"],
-        "scissors": ["win against": "rock", "draw with": "scissors", "lose to":"paper"],
+        "rock": ["win against": "paper", "draw with": "rock", "lose to":"scissors", "symbol":"mountain.2"],
+        "paper": ["win against": "scissors", "draw with": "paper", "lose to":"rock", "symbol":"doc"],
+        "scissors": ["win against": "rock", "draw with": "scissors", "lose to":"paper", "symbol":"scissors"],
     ]
     
     private let maxRounds = 15;
@@ -163,8 +163,9 @@ struct MainGameView: View {
             
             if readyToPlay {
                 Spacer()
-                VStack {
-                    SquareTile(size: 180)
+                VStack(spacing: 0) {
+                    let symbolName = MainGameView.matchPairs[shuffledSingleItem]?["symbol"] ?? "NA"
+                    SquareTile(size: 180, image: symbolName, scaleSize: 6, isclear: true )
                     Text(shuffledSingleItem.uppercased())
                         .font(.title)
                         .opacity(gameTexIstHidden ? 0 : 1)
@@ -172,6 +173,7 @@ struct MainGameView: View {
                 Spacer()
                 HStack {
                     ForEach(0..<3){number in
+                        let symbolName = MainGameView.matchPairs[shuffledItemsArr[number]]?["symbol"] ?? "NA"
                         Button {
                             chosenItem = shuffledItemsArr[number]
                             recordChoice()
@@ -180,7 +182,7 @@ struct MainGameView: View {
                             
                         } label: {
                             VStack {
-                                SquareTile(size: 110)
+                                SquareTile(size: 110, image: symbolName, scaleSize: 3)
                                 Text(shuffledItemsArr[number].uppercased())
                                     .font(.title3)
                                     .opacity(gameTexIstHidden ? 0 : 1)
