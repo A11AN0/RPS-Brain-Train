@@ -11,6 +11,7 @@ import SwiftUI
 struct GameTimer: View {
     @Binding var isReady: Bool
     @State private var gameIsOver = false
+    @State private var promptIsVisible = false
     /*had to make this a binding because, when toggled - this needs to affect the state of it's parent MainGameView :)*/
     var timeRemainder:Int
 
@@ -29,7 +30,7 @@ struct GameTimer: View {
                     .font(.largeTitle)
                     .fontWeight(.light)
                     .frame(maxWidth: .infinity, maxHeight: 120)
-                    .underline()
+                    .scaleEffect(1.4)
                 Text("350")
                     .font(.largeTitle)
                     .fontWeight(.light)
@@ -42,6 +43,8 @@ struct GameTimer: View {
             
         } else {
            
+            
+            
             VStack {
                 if isReady {
                     Text("0:\(String(format: "%02d", timeRemainder))")
@@ -56,20 +59,34 @@ struct GameTimer: View {
                             .font(.largeTitle)
                             .fontWeight(.light)
                             .frame(maxWidth: .infinity, maxHeight: 120)
+                        
+                        VStack {
+                            SquareTile()
+                            Text("YES")
+                                .font(.title)
+                                
+                        }
+                        .onTapGesture {
+                            withAnimation {
+                                if isReady == false {
+                                    isReady.toggle()
+                                }
+                            }
+                            
+                        }
                         Spacer()
+                    }
+                    .opacity(promptIsVisible ? 1 : 0)
+                    .onAppear {
+                        withAnimation {
+                            promptIsVisible = true
+                        }
+                        
                     }
                 }
                       
             }
             .contentShape(Rectangle()) // to increase tappable area
-            .onTapGesture {
-                withAnimation {
-                    if isReady == false {
-                        isReady.toggle()
-                    }
-                }
-                
-            }
             .background(Color( isReady ? .clear :  .systemGreen))
 
         }
