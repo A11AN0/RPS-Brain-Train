@@ -52,10 +52,11 @@ struct MainGameView: View {
         if !gameHasEnded {
             if timeRemaining == 0 {
                 endGame()
+                
             }
             
             //I will need to put something for when the buttons are pressed
-            if numberOfRounds == maxRounds {
+            if numberOfRounds == maxRounds + 1 {
                 endGame()
             }
         }
@@ -71,12 +72,16 @@ struct MainGameView: View {
     }
     
     //to reset entire game
+    //will need to embed this within gameTimer
     func restartGame() {
         gameTexIstHidden = false
         timeRemaining = 30
         score = 0
         numberOfRounds = 1
+        gameHasEnded = false
     }
+    
+   
     
     func recordChoice() {
         let correctChoice = MainGameView.matchPairs[shuffledSingleItem]?[desiredResult] ?? "NA"
@@ -126,14 +131,23 @@ struct MainGameView: View {
                 is modified by GameTimer - kinda cool - because this is
                  how children views can modify the state of their parent views
                  */
-                
-                GameTimer(isReady: $readyToPlay, timeRemainder: timeRemaining)
-                    .onReceive(timer){ _ in
-                        if timeRemaining > 0 && readyToPlay {
-                            timeRemaining -= 1
+                if !gameHasEnded {
+                    GameTimer(isReady: $readyToPlay, timeRemainder: timeRemaining)
+                        .onReceive(timer){ _ in
+
+                            if readyToPlay {
+                                timeRemaining -= timeRemaining > 0 ? 1 : 0
+                                evaluateEndGame()
+                            }
+                                
                         }
-                        evaluateEndGame()
-                    }
+                }
+                else
+                {
+                    //correct way to pass functions down to children
+                    ScoreView(restartFunc: {restartGame()}, score: score)
+                }
+                
                 
                 if readyToPlay {
                     Text(desiredResultTitle)
