@@ -25,21 +25,12 @@ struct ContentView: View {
     
     let title = TitleView()
     let mainGame = MainGameView()
-    let end = ScoreView()
+    
     
     var body: some View {
             NavigationView {
                 NavigationLink(destination: mainGame) {
-                    
-                    if firstGameOver {
-                        end
-                    }
-                    else
-                    {
-                        title
-                    }
-                        
-                    
+                        title   
                 }
                 .buttonStyle(PlainButtonStyle())
                 
