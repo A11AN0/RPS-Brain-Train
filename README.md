@@ -1,10 +1,10 @@
 # RPS Brain Train
 
 <div style="display: flex;" align="center">
-  <img src="./Resources/title.png" alt="Title screen" style="height: 300px; width: auto;">
-  <img src="./Resources/ready.png" alt="Ready to play prompt" style="height: 300px; width: auto;">
-  <img src="./Resources/game.png" alt="Game screen" style="height: 300px; width: auto;">
-  <img src="./Resources/score.png" alt="Game score screen" style="height: 300px; width: auto;">
+  <img src="./Resources/title.png" alt="Title screen" style="height: 350px; width: auto;">
+  <img src="./Resources/ready.png" alt="Ready to play prompt" style="height: 350px; width: auto;">
+  <img src="./Resources/game.png" alt="Game screen" style="height: 350px; width: auto;">
+  <img src="./Resources/score.png" alt="Game score screen" style="height: 350px; width: auto;">
 </div>
 
 ### A brain training SwiftUI app, built with a clean and minimalistic design, intended for IOS devices.
@@ -14,8 +14,8 @@
 RPS or 'Rock, paper, scissors' Brain Train is an intuitive IOS brain trainer built with SwiftUI to enhance users decision making skills and recall. The game portion of RPS Brain Train is based on rock paper scissors against the computer, however the computers' choice is already made evident to the user, along with the prompt to either win, lose or draw. The user must then make a decision based on the information provided, and then click the corresponding item to to achieve this result. There is a timer to add a sense of urgency, and the user is given a score based on how many correct decisions and how long it takes to make them. The score is revealed at the end of the game, after which the user can then choose to play again, or to go back to the main menu.
 
 <p align="center">
-  <!-- <img src="./src/images/appGif.gif" alt="Snake game gif"> -->
-  image to go here
+  <img src="./Resources/gameGif.gif" style="height: 500px; width: auto;">
+  
 </p>
 
 ---
@@ -89,7 +89,13 @@ The timer constant is a Timer object that is set to publish events every second 
 
 ## Future Developments
 
--
+-   Refactor code for improved readability, maintainability and efficiency.
+-   Animation for buttons on tap and press.
+-   Smoother transition upon appearance for all screens.
+-   Sound effects for button presses and game start.
+-   Enhance UI design for iPad and Mac.
+-   Multiplayer mode.
+-   App store release and integration with Apple game center.
 
 ## Contributions
 
