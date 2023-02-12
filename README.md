@@ -1,8 +1,10 @@
 # RPS Brain Train
 
-<p align="center">
-  <!-- <img src="./src/images/appImage.png" alt="Six-pack Demo"> -->
-  image to go here
+<div style="display: flex; width: 100%">
+  <img src="./Resources/title.png" alt="Title screen">
+  <img src="./Resources/ready.png" alt="Ready to play prompt">
+  <img src="./Resources/game.png" alt="Game screen">
+  <img src="./Resources/score.png" alt="Game score screen">
 </p>
 
 ### A brain training SwiftUI app, built with a clean and minimalistic design, intended for IOS devices.
