@@ -14,7 +14,7 @@
 RPS or 'Rock, paper, scissors' Brain Train is an intuitive IOS brain trainer built with SwiftUI to enhance users decision making skills and recall. The game portion of RPS Brain Train is based on rock paper scissors against the computer, however the computers' choice is already made evident to the user, along with the prompt to either win, lose or draw. The user must then make a decision based on the information provided, and then click the corresponding item to to achieve this result. There is a timer to add a sense of urgency, and the user is given a score based on how many correct decisions and how long it takes to make them. The score is revealed at the end of the game, after which the user can then choose to play again, or to go back to the main menu.
 
 <p align="center">
-  <img src="./Resources/gameGif.gif" style="height: 500px; width: auto;">
+  <img src="./Resources/simulator.gif" style="height: 500px; width: auto;">
   
 </p>
 
