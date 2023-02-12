@@ -1,6 +1,6 @@
 # RPS Brain Train
 
-<div style="display: flex; width: 100%">
+<div style="display: flex; justify-content: center; width: 100%">
   <img src="./Resources/title.png" alt="Title screen" style="height: 300px; width: auto;">
   <img src="./Resources/ready.png" alt="Ready to play prompt" style="height: 300px; width: auto;">
   <img src="./Resources/game.png" alt="Game screen" style="height: 300px; width: auto;">
