@@ -96,6 +96,7 @@ The timer constant is a Timer object that is set to publish events every second 
 -   Enhance UI design for iPad and Mac.
 -   Multiplayer mode.
 -   App store release and integration with Apple game center.
+-   Share score on social media.
 
 ## Contributions
 
