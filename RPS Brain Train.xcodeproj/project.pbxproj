@@ -26,6 +26,7 @@
 		9D5A7CDC297EDDE100B596ED /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9D5BA0C8298346D100DCCE58 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		9D5BA0CA2984FA8600DCCE58 /* GameTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTimer.swift; sourceTree = "<group>"; };
+		9DAA57C52998C280005094FA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9DF2196529816D5F007272A9 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		9DF219692981945F007272A9 /* SquareTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTile.swift; sourceTree = "<group>"; };
 		9DF2196B29829F9A007272A9 /* MainGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainGameView.swift; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 			children = (
 				9D5A7CD5297EDDDF00B596ED /* RPS_Brain_TrainApp.swift */,
 				9D5A7CD7297EDDDF00B596ED /* ContentView.swift */,
+				9DAA57C52998C280005094FA /* README.md */,
 				9D5BA0C8298346D100DCCE58 /* ScoreView.swift */,
 				9DF2196B29829F9A007272A9 /* MainGameView.swift */,
 				9D5BA0CA2984FA8600DCCE58 /* GameTimer.swift */,
