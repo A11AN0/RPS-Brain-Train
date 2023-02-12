@@ -33,9 +33,8 @@ struct ContentView: View {
                         title   
                 }
                 .buttonStyle(PlainButtonStyle())
-                
-
-            }   
+            }
+            .navigationBarBackButtonHidden(true)
     }
 }
 

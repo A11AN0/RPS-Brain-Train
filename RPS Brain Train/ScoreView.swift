@@ -47,7 +47,11 @@ struct ScoreView: View {
                 }
                 Spacer()
                 VStack {
-                    SquareTile(image: "xmark", isclear: true)
+                    NavigationLink(destination: ContentView()) {
+                        SquareTile(image: "xmark", isclear: true)
+                    }
+                    .buttonStyle(PlainButtonStyle())
+                    
                     
                 }
                 .scaleEffect(0.8)
